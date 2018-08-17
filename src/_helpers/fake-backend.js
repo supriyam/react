@@ -132,7 +132,7 @@ export function configureFakeBackend() {
                             let user = users[i];
                             if (user.id === id) {
                                 // update user
-                                newUser.id = users.length ? Math.max(...users.map(user => user.id)) + 1 : 1;                    
+                                user.firstName = newUser.firstName;
                                 users.push(newUser);
                                 localStorage.setItem('users', JSON.stringify(users));
                                 break;

@@ -14,6 +14,23 @@ export function users(state = {}, action) {
       return { 
         error: action.error
       };
+      case userConstants.UPDATE_REQUEST:
+      return {
+        ...state
+      };
+    case userConstants.UPDATE_SUCCESS:
+      return {
+         ...state,
+         items: state.items.map(user =>
+          user.id === action.id
+            ? { ...user }
+            : user
+        )
+      };
+    case userConstants.UPDATE_FAILURE:
+      return { 
+        ...state
+      };  
     case userConstants.DELETE_REQUEST:
       // add 'deleting:true' property to user being deleted
       return {

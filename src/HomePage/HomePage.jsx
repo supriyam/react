@@ -9,7 +9,7 @@ class HomePage extends React.Component {
         super(props);
         this.state = {
           user : {
-            name:''
+            name: ''
           }
     }
     this.handleChange = this.handleChange.bind(this);
@@ -25,9 +25,9 @@ class HomePage extends React.Component {
 
     handleChange(event){
         const { name, value } = event.target;
-        const {user} = this.state;
-        this.setState({user : { ...user,[name]:value}});
-        console.log(this.state);
+        const {user} = this.state;        
+        this.setState({user : { ...user,[name]:value}}); 
+        console.log(this.state);       
     }
 
     handleUpdateUser(id){
@@ -37,6 +37,7 @@ class HomePage extends React.Component {
 
     render() {
         const { user, users } = this.props;
+        
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h1>Hi {user.firstName}!</h1>
