@@ -9,7 +9,7 @@ class HomePage extends React.Component {
         super(props);
         this.state = {
           user : {
-            name: ''
+            firstName: ''
           }
     }
     this.handleChange = this.handleChange.bind(this);
@@ -49,7 +49,7 @@ class HomePage extends React.Component {
                     <ul>
                         {users.items.map((user, index) =>
                             <li key={user.id}>
-                               <input type="text" name= "firstName" value={user.firstName} onChange={this.handleChange}/>
+                               <input type="text" name= "firstName" value={user.firstName ? user.firstName : this.state.user.firstName} onChange={this.handleChange}/>
                                 {
                                     user.deleting ? <em> - Deleting...</em>
                                     : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
